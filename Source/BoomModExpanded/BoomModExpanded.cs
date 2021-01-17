@@ -18,16 +18,18 @@ namespace BoomModExpanded
 
     internal static class Evaluator
     {
-        private static readonly Dictionary<HediffDef, float> ExplosionChance = new Dictionary<HediffDef, float>
+        public static Dictionary<HediffDef, float> ExplosionChance = new Dictionary<HediffDef, float>
         {
-                    { HediffDefOf.Burn, 1f },
-                    { HediffDefOf.Gunshot, 1f },
-                    { HediffDefOf.Shredded, 1f }
+            { HediffDefOf.Burn, 1f },
+            { HediffDefOf.Gunshot, 1f },
+            { HediffDefOf.Shredded, 1f }
         };
 
         private static List<string> ListedPawnKindDefs;
 
         private static bool _explosionImminent;
+
+        public static Pawn currentButcheredPawn;
 
         public static bool IsListedPawnKind(Pawn pawn)
         {
@@ -53,15 +55,29 @@ namespace BoomModExpanded
 
             var def = (cause as Hediff_MissingPart)?.lastInjury ?? cause.def;
 
-            if (!pawn.HasAttachment(ThingDefOf.Fire) && !IsExplosive(def)) { return false; }
-
-            _explosionImminent = true;
-            return true;
+            if (pawn.HasAttachment(ThingDefOf.Fire) || IsExplosive(def, pawn))
+            {
+                _explosionImminent = true;
+                return true;
+            }
+            return false;
         }
 
-        private static bool IsExplosive(HediffDef def)
+        private static bool IsExplosive(HediffDef def, Pawn victim)
         {
-            return ExplosionChance.ContainsKey(def) && Rand.Chance(ExplosionChance[def]);
+            //Log.Message($"Checking if {victim.NameShortColored} should explode of {def.label}");
+            if (!BoomModExpandedMod.instance.Settings.Slaughter && victim == Evaluator.currentButcheredPawn)
+            {
+                //Log.Message($"No, {victim.NameShortColored} is being slaughtered");
+                return false;
+            }
+            if (!BoomModExpandedMod.instance.Settings.Medival)
+            {
+                //Log.Message($"Only if {def.label} is a modern wound");
+                return ExplosionChance.ContainsKey(def) && Rand.Chance(ExplosionChance[def]);
+            }
+            //Log.Message($"Yes");
+            return true;
         }
 
         public static bool IsExplosionImmiment()
@@ -79,6 +95,15 @@ namespace BoomModExpanded
         private static bool Prefix(Corpse corpse)
         {
             return (corpse.InnerPawn == null) || !Evaluator.IsListedPawnKind(corpse.InnerPawn) || Evaluator.IsExplosionImmiment();
+        }
+    }
+
+    [HarmonyPatch(typeof(ExecutionUtility), nameof(ExecutionUtility.DoExecutionByCut), new[] { typeof(Pawn), typeof(Pawn) })]
+    internal static class RimWorld_ExecutionUtility_DoExecutionByCut
+    {
+        private static void Prefix(Pawn executioner, Pawn victim)
+        {
+            Evaluator.currentButcheredPawn = victim;
         }
     }
 
