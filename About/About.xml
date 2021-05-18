@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>BoomMod Expanded</name>
   <packageId>Mlie.BoomModExpanded</packageId>
@@ -23,6 +23,8 @@
 - This is a fork of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1504182014]BoomMod[/url] by Jaxe
 - The main difference is that this version works on all pawns that explode on death, for example the BoomBat from [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1963681588]Vanilla Animals Expanded — Australia[/url]
 - Requested by Malminas
+- Added options for selecting exploding conditions
+- Works well with [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2324221340]Predators Hunt Boom Critters[/url] by velcroboy333
 
 [table]
     [tr]
