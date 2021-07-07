@@ -4,7 +4,7 @@ using Verse;
 
 namespace BoomModExpanded
 {
-    [HarmonyPatch(typeof(ExecutionUtility), nameof(ExecutionUtility.DoExecutionByCut), typeof(Pawn), typeof(Pawn))]
+    [HarmonyPatch(typeof(ExecutionUtility), nameof(ExecutionUtility.DoExecutionByCut))]
     internal static class RimWorld_ExecutionUtility_DoExecutionByCut
     {
         private static void Prefix(Pawn victim)
