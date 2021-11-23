@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <BME.explodefor.label>Explode for</BME.explodefor.label>
+  <BME.explodefor.tooltip>The following events are included in causing explosions of exploding pawns.</BME.explodefor.tooltip>
+  <BME.slaughter.label>Slaughter</BME.slaughter.label>
+  <BME.slaughter.tooltip>Explode when slaughtering</BME.slaughter.tooltip>
+  <BME.medieval.label>Melee or medieval</BME.medieval.label>
+  <BME.medieval.tooltip>Explode when dying of a melee or ranged medieval</BME.medieval.tooltip>
+  <BME.nothing.label>Well, this is awkward. This mod will not do anything if you dont unselect any of the options...</BME.nothing.label>
+  <BME.version.label>Installed mod-version: {0}</BME.version.label>
+</LanguageData>

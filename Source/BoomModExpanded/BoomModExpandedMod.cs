@@ -67,22 +67,22 @@ namespace BoomModExpanded
             var listing_Standard = new Listing_Standard();
             listing_Standard.Begin(rect);
             listing_Standard.Gap();
-            listing_Standard.Label("Explode for", -1,
-                "The following events are included in causing explosions of exploding pawns.");
-            listing_Standard.CheckboxLabeled("Slaughter", ref Settings.Slaughter, "Explode when slaughtering");
-            listing_Standard.CheckboxLabeled("Melee or medival", ref Settings.Medival,
-                "Explode when dying of a melee or ranged medival");
+            listing_Standard.Label("BME.explodefor.label".Translate(), -1,
+                "BME.explodefor.tooltip".Translate());
+            listing_Standard.CheckboxLabeled("BME.slaughter.label".Translate(), ref Settings.Slaughter,
+                "BME.slaughter.tooltip".Translate());
+            listing_Standard.CheckboxLabeled("BME.medieval.label".Translate(), ref Settings.Medival,
+                "BME.medieval.tooltip".Translate());
             if (Settings.Slaughter && Settings.Medival)
             {
-                listing_Standard.Label(
-                    "Well, this is awkward. This mod will not do anything if you dont unselect any of the options...");
+                listing_Standard.Label("BME.nothing.label".Translate());
             }
 
             if (currentVersion != null)
             {
                 listing_Standard.Gap();
                 GUI.contentColor = Color.gray;
-                listing_Standard.Label($"Installed mod-version: {currentVersion}");
+                listing_Standard.Label("BME.version.label".Translate(currentVersion));
                 GUI.contentColor = Color.white;
             }
 

@@ -1,5 +1,10 @@
 # Changelog for BoomModExpanded
 
+1.0.5.0 - Added translation strings
+Fixed a typo, thanks Kayedon!
+
+
+
 1.0.4.0 - Fixed the 1.2 version that got broken in the last update
 
 

@@ -9,9 +9,9 @@ namespace BoomModExpanded
     {
         private static readonly Dictionary<HediffDef, float> ExplosionChance = new Dictionary<HediffDef, float>
         {
-            {HediffDefOf.Burn, 1f},
-            {HediffDefOf.Gunshot, 1f},
-            {HediffDefOf.Shredded, 1f}
+            { HediffDefOf.Burn, 1f },
+            { HediffDefOf.Gunshot, 1f },
+            { HediffDefOf.Shredded, 1f }
         };
 
         private static List<string> ListedPawnKindDefs;
@@ -28,7 +28,7 @@ namespace BoomModExpanded
         public static void UpdateExploders()
         {
             var explodersLoaded = from exploder in DefDatabase<ThingDef>.AllDefsListForReading
-                where exploder.race != null && exploder.race.deathActionWorkerClass != null &&
+                where exploder.race is { deathActionWorkerClass: { } } &&
                       exploder.race.deathActionWorkerClass.Name.EndsWith("Explosion")
                 select exploder;
             ListedPawnKindDefs = new List<string>();

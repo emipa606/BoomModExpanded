@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>BoomMod Expanded</name>
   <packageId>Mlie.BoomModExpanded</packageId>
@@ -20,7 +20,7 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+  <description>[img]https://i.imgur.com/buuPQel.png[/img]
 - This is a fork of [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1504182014]BoomMod[/url] by Jaxe
 - The main difference is that this version works on all pawns that explode on death, for example the BoomBat from [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1963681588]Vanilla Animals Expanded — Australia[/url]
 - Requested by Malminas
@@ -34,7 +34,7 @@
     [/tr]
 [/table]
 
-[img]https://i.imgur.com/NOW7jU1.png[/img]
+[img]https://i.imgur.com/Z4GOv8H.png[/img]
 With this mod Boomalopes and Boomrats will only explode on death when the killing blow is a gunshot, burn, another explosion or they are otherwise on fire at the time. Melee weapons, medieval ranged weapons and natural causes do not trigger an explosion.
 
 
@@ -42,7 +42,7 @@ With this mod Boomalopes and Boomrats will only explode on death when the killin
 
 [i]With these animals less likely to explode it may seem logical that they should be hunted by predators. [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1511181700]Boom Boom Is Prey[/url] by Walking Problem is a mod that does just that and should have no compatibility issues with this one so check that out.[/i]
 
-[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[img]https://i.imgur.com/PwoNOj4.png[/img]
 [list]
 [*] See if the the error persists if you just have this mod and its requirements active.
 [*] If not, try adding your other mods until it happens again.
