@@ -5,8 +5,8 @@
 		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2359846788</linkUrl>
 	</HugsLib.UpdateFeatureDef>
 	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
-		<defName>BoomModExpanded_1_0_5_0</defName>
-		<assemblyVersion>1.0.5.0</assemblyVersion>
+		<defName>BoomModExpanded_1_0_6_0</defName>
+		<assemblyVersion>1.0.6.0</assemblyVersion>
 		<content></content>
 	</HugsLib.UpdateFeatureDef>
 </Defs>
