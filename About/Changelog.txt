@@ -1,5 +1,8 @@
 # Changelog for BoomModExpanded
 
+1.0.8.0 - Updated VersionFromManifest-file to not get the 'loading is already in progress' error with some mods
+
+
 1.0.7.0 - Republish to really remove the empty HugsLib news
 
 
