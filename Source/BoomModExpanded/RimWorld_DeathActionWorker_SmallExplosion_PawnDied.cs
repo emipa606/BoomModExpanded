@@ -2,16 +2,15 @@
 using RimWorld;
 using Verse;
 
-namespace BoomModExpanded
+namespace BoomModExpanded;
+
+[HarmonyPatch(typeof(DeathActionWorker_SmallExplosion), nameof(DeathActionWorker_SmallExplosion.PawnDied),
+    typeof(Corpse))]
+internal static class RimWorld_DeathActionWorker_SmallExplosion_PawnDied
 {
-    [HarmonyPatch(typeof(DeathActionWorker_SmallExplosion), nameof(DeathActionWorker_SmallExplosion.PawnDied),
-        typeof(Corpse))]
-    internal static class RimWorld_DeathActionWorker_SmallExplosion_PawnDied
+    private static bool Prefix(Corpse corpse)
     {
-        private static bool Prefix(Corpse corpse)
-        {
-            return corpse.InnerPawn == null || !Evaluator.IsListedPawnKind(corpse.InnerPawn) ||
-                   Evaluator.IsExplosionImmiment();
-        }
+        return corpse.InnerPawn == null || !Evaluator.IsListedPawnKind(corpse.InnerPawn) ||
+               Evaluator.IsExplosionImmiment();
     }
 }
