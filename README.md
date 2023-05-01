@@ -1,6 +1,6 @@
 # BoomModExpanded
 
-![Image](https://i.imgur.com/buuPQel.png)
+![Image](https://i.imgur.com/iCj5o7O.png)
 
 - This is a fork of https://steamcommunity.com/sharedfiles/filedetails/?id=1504182014]BoomMod by Jaxe
 - The main difference is that this version works on all pawns that explode on death, for example the BoomBat from https://steamcommunity.com/sharedfiles/filedetails/?id=1963681588]Vanilla Animals Expanded — Australia
@@ -17,7 +17,7 @@ With this mod Boomalopes and Boomrats will only explode on death when the killin
 
 *With these animals less likely to explode it may seem logical that they should be hunted by predators. https://steamcommunity.com/sharedfiles/filedetails/?id=1511181700]Boom Boom Is Prey by Walking Problem is a mod that does just that and should have no compatibility issues with this one so check that out.*
 
-![Image](https://i.imgur.com/PwoNOj4.png)
+![Image](https://i.imgur.com/5xwDG6H.png)
 
 
 
@@ -31,3 +31,4 @@ With this mod Boomalopes and Boomrats will only explode on death when the killin
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2359846788]Last updated 2023-05-01
