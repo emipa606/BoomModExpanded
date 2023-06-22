@@ -1,5 +1,8 @@
 # Changelog for BoomModExpanded
 
+1.4.3 - Added support for the custom death-explosion in [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2969748433]Biomes! Caverns[/url]
+
+
 1.4.2 - Updated russian translation by Reiquard
 
 

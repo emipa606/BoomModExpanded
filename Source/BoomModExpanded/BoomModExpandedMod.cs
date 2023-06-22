@@ -17,7 +17,7 @@ internal class BoomModExpandedMod : Mod
     /// <summary>
     ///     The private settings
     /// </summary>
-    private BoomModExpandedSettings settings;
+    public readonly BoomModExpandedSettings Settings;
 
     /// <summary>
     ///     Constructor
@@ -26,26 +26,9 @@ internal class BoomModExpandedMod : Mod
     public BoomModExpandedMod(ModContentPack content) : base(content)
     {
         instance = this;
+        Settings = GetSettings<BoomModExpandedSettings>();
         currentVersion =
-            VersionFromManifest.GetVersionFromModMetaData(
-                ModLister.GetActiveModWithIdentifier("Mlie.BoomModExpanded"));
-    }
-
-    /// <summary>
-    ///     The instance-settings for the mod
-    /// </summary>
-    internal BoomModExpandedSettings Settings
-    {
-        get
-        {
-            if (settings == null)
-            {
-                settings = GetSettings<BoomModExpandedSettings>();
-            }
-
-            return settings;
-        }
-        set => settings = value;
+            VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
     }
 
     /// <summary>
