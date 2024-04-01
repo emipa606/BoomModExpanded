@@ -10,7 +10,7 @@ internal static class Verse_BattleLogEntry_StateTransition
 {
     private static void Prefix(Thing subject, ref RulePackDef transitionDef, Hediff culpritHediff)
     {
-        if (!(subject is Pawn pawn) || !Evaluator.IsListedPawnKind(pawn) ||
+        if (subject is not Pawn pawn || !Evaluator.IsListedPawnKind(pawn) ||
             Evaluator.IsExploding(pawn, culpritHediff))
         {
             return;

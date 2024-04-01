@@ -9,9 +9,9 @@ internal static class Evaluator
 {
     private static readonly Dictionary<HediffDef, float> ExplosionChance = new Dictionary<HediffDef, float>
     {
-        { HediffDefOf.Burn, 1f },
-        { HediffDefOf.Gunshot, 1f },
-        { HediffDefOf.Shredded, 1f }
+        { HediffDef.Named("Burn"), 1f },
+        { HediffDef.Named("Gunshot"), 1f },
+        { HediffDef.Named("Shredded"), 1f }
     };
 
     private static List<string> ListedPawnKindDefs;
@@ -28,10 +28,10 @@ internal static class Evaluator
     public static void UpdateExploders()
     {
         var explodersLoaded = from exploder in DefDatabase<ThingDef>.AllDefsListForReading
-            where exploder.race is { deathActionWorkerClass: { } } &&
-                  exploder.race.deathActionWorkerClass.Name.EndsWith("Explosion")
+            where exploder.race is { deathAction.workerClass: not null } &&
+                  exploder.race.deathAction.workerClass.Name.EndsWith("Explosion")
             select exploder;
-        ListedPawnKindDefs = new List<string>();
+        ListedPawnKindDefs = [];
         var exploderNames = new List<string>();
         foreach (var exploder in explodersLoaded)
         {
