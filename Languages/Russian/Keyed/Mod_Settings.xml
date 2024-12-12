@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <BME.explodefor.label>Сделать взрывы возможными для событий:</BME.explodefor.label>
   <BME.explodefor.tooltip>Следующие события будут вызывать взрыв существ, обладающих соответствующими свойствами.</BME.explodefor.tooltip>

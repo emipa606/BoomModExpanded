@@ -1,5 +1,8 @@
 # Changelog for BoomModExpanded
 
+1.5.1 - Updated the patch for Biomes! Caverns
+
+
 1.5.0 - Mod updated for 1.5 and passed autotests
 
 

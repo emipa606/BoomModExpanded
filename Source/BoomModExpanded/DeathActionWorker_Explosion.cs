@@ -22,7 +22,7 @@ internal static class DeathActionWorker_Explosion
         }
 
         Log.Message("[BoomModExpanded]: Adding support for Biomes! Caverns");
-        yield return AccessTools.Method("BMT.DeathActionWorker_SharpExplosion:PawnDied");
+        yield return AccessTools.Method("BiomesCaverns.DeathActionWorkers.DeathActionWorker_SharpExplosion:PawnDied");
     }
 
     private static bool Prefix(Corpse corpse)
