@@ -60,22 +60,18 @@ internal static class Evaluator
         return true;
     }
 
-    private static bool IsExplosive(HediffDef def, Pawn victim)
+    public static bool IsExplosive(HediffDef def, Pawn victim)
     {
-        //Log.Message($"Checking if {victim.NameShortColored} should explode of {def.label}");
         if (!BoomModExpandedMod.instance.Settings.Slaughter && victim == currentButcheredPawn)
         {
-            //Log.Message($"No, {victim.NameShortColored} is being slaughtered");
             return false;
         }
 
         if (!BoomModExpandedMod.instance.Settings.Medival)
         {
-            //Log.Message($"Only if {def.label} is a modern wound");
             return ExplosionChance.ContainsKey(def) && Rand.Chance(ExplosionChance[def]);
         }
 
-        //Log.Message("Yes");
         return true;
     }
 

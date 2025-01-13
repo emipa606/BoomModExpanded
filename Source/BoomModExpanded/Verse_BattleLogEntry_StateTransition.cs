@@ -8,7 +8,7 @@ namespace BoomModExpanded;
     typeof(Pawn), typeof(Hediff), typeof(BodyPartRecord))]
 internal static class Verse_BattleLogEntry_StateTransition
 {
-    private static void Prefix(Thing subject, ref RulePackDef transitionDef, Hediff culpritHediff)
+    public static void Prefix(Thing subject, ref RulePackDef transitionDef, Hediff culpritHediff)
     {
         if (subject is not Pawn pawn || !Evaluator.IsListedPawnKind(pawn) ||
             Evaluator.IsExploding(pawn, culpritHediff))

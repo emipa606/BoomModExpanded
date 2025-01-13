@@ -1,5 +1,8 @@
 # Changelog for BoomModExpanded
 
+1.5.2 - Added support for the explosion hediffs added by Vanilla Expanded and Alpha Genes
+
+
 1.5.1 - Updated the patch for Biomes! Caverns
 
 

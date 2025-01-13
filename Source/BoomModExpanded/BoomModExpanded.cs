@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using HarmonyLib;
 using Verse;
 
@@ -38,6 +39,7 @@ public class BoomModExpanded
             "AlphaBehavioursAndEvents.DeathActionWorker_SummonFlashstorm"
         };
 
+        MethodInfo method;
         foreach (var explosionPatch in listOfExplosionPatches)
         {
             var type = AccessTools.TypeByName(explosionPatch);
@@ -46,7 +48,7 @@ public class BoomModExpanded
                 continue;
             }
 
-            var method = type.GetMethod("PawnDied");
+            method = type.GetMethod("PawnDied");
             if (method == null)
             {
                 continue;
@@ -54,6 +56,23 @@ public class BoomModExpanded
 
             harmony.Patch(method, new HarmonyMethod(typeof(BoomModExpanded).GetMethod(nameof(GenericPatch))));
         }
+
+        if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core") != null)
+        {
+            Log.Message("[BoomModExpanded]: Adding support for Animal Behaviour");
+            method = AccessTools.Method("AnimalBehaviours.HediffComp_Exploder:Notify_PawnDied");
+            harmony.Patch(method, new HarmonyMethod(HediffComp_Exploder_Notify_PawnDied.Prefix));
+        }
+
+
+        if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") == null)
+        {
+            return;
+        }
+
+        Log.Message("[BoomModExpanded]: Adding support for Alpha Genes");
+        method = AccessTools.Method("AlphaGenes.HediffComp_Exploder:Notify_PawnDied");
+        harmony.Patch(method, new HarmonyMethod(HediffComp_Exploder_Notify_PawnDied.Prefix));
     }
 
     public static bool GenericPatch(Corpse corpse)

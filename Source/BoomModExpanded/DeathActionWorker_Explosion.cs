@@ -9,7 +9,7 @@ namespace BoomModExpanded;
 [HarmonyPatch]
 internal static class DeathActionWorker_Explosion
 {
-    private static IEnumerable<MethodBase> TargetMethods()
+    public static IEnumerable<MethodBase> TargetMethods()
     {
         yield return AccessTools.Method(typeof(DeathActionWorker_BigExplosion),
             nameof(DeathActionWorker_BigExplosion.PawnDied));
@@ -25,7 +25,7 @@ internal static class DeathActionWorker_Explosion
         yield return AccessTools.Method("BiomesCaverns.DeathActionWorkers.DeathActionWorker_SharpExplosion:PawnDied");
     }
 
-    private static bool Prefix(Corpse corpse)
+    public static bool Prefix(Corpse corpse)
     {
         return corpse.InnerPawn == null || !Evaluator.IsListedPawnKind(corpse.InnerPawn) ||
                Evaluator.IsExplosionImmiment();
