@@ -16,7 +16,7 @@ internal static class DeathActionWorker_Explosion
         yield return AccessTools.Method(typeof(DeathActionWorker_SmallExplosion),
             nameof(DeathActionWorker_SmallExplosion.PawnDied));
 
-        if (ModLister.GetActiveModWithIdentifier("BiomesTeam.BiomesCaverns") == null)
+        if (ModLister.GetActiveModWithIdentifier("BiomesTeam.BiomesCaverns", true) == null)
         {
             yield break;
         }
@@ -27,7 +27,11 @@ internal static class DeathActionWorker_Explosion
 
     public static bool Prefix(Corpse corpse)
     {
-        return corpse.InnerPawn == null || !Evaluator.IsListedPawnKind(corpse.InnerPawn) ||
-               Evaluator.IsExplosionImmiment();
+        if (corpse.InnerPawn == null)
+        {
+            return true;
+        }
+
+        return !Evaluator.IsListedPawnKind(corpse.InnerPawn) || Evaluator.IsExplosionImminent();
     }
 }

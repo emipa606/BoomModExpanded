@@ -2,11 +2,12 @@
   "Continued": false,
   "CanAdd": "0",
   "CanRemove": "0",
-  "PreviewVersion": "1.5",
+  "PreviewVersion": "1.6",
   "SocialImageSet": true,
   "FundingSet": true,
   "SearchTags": [
     "explosion",
     " death"
-  ]
+  ],
+  "LastXmlCleaning": "2025-06-23T20:23:15.2159503+02:00"
 }

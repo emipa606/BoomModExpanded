@@ -10,7 +10,7 @@ internal class BoomModExpandedMod : Mod
     /// <summary>
     ///     The instance of the settings to be read by the mod
     /// </summary>
-    public static BoomModExpandedMod instance;
+    public static BoomModExpandedMod Instance;
 
     private static string currentVersion;
 
@@ -25,7 +25,7 @@ internal class BoomModExpandedMod : Mod
     /// <param name="content"></param>
     public BoomModExpandedMod(ModContentPack content) : base(content)
     {
-        instance = this;
+        Instance = this;
         Settings = GetSettings<BoomModExpandedSettings>();
         currentVersion =
             VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
@@ -54,9 +54,9 @@ internal class BoomModExpandedMod : Mod
             "BME.explodefor.tooltip".Translate());
         listing_Standard.CheckboxLabeled("BME.slaughter.label".Translate(), ref Settings.Slaughter,
             "BME.slaughter.tooltip".Translate());
-        listing_Standard.CheckboxLabeled("BME.medieval.label".Translate(), ref Settings.Medival,
+        listing_Standard.CheckboxLabeled("BME.medieval.label".Translate(), ref Settings.Medieval,
             "BME.medieval.tooltip".Translate());
-        if (Settings.Slaughter && Settings.Medival)
+        if (Settings.Slaughter && Settings.Medieval)
         {
             listing_Standard.Label("BME.nothing.label".Translate());
         }

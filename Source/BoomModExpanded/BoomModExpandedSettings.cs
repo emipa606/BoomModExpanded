@@ -7,7 +7,7 @@ namespace BoomModExpanded;
 /// </summary>
 internal class BoomModExpandedSettings : ModSettings
 {
-    public bool Medival;
+    public bool Medieval;
 
     public bool Slaughter;
     //public bool Naturally = true;
@@ -19,7 +19,7 @@ internal class BoomModExpandedSettings : ModSettings
     {
         base.ExposeData();
         Scribe_Values.Look(ref Slaughter, "Slaughter");
-        Scribe_Values.Look(ref Medival, "Medival");
+        Scribe_Values.Look(ref Medieval, "Medival");
         //Scribe_Values.Look(ref Naturally, "Naturally", true, false);
     }
 }

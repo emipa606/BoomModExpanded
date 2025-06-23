@@ -9,6 +9,6 @@ internal static class RimWorld_ExecutionUtility_DoExecutionByCut
 {
     private static void Prefix(Pawn victim)
     {
-        Evaluator.currentButcheredPawn = victim;
+        Evaluator.CurrentButcheredPawn = victim;
     }
 }

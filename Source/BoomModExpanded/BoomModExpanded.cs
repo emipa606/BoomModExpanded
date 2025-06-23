@@ -11,8 +11,7 @@ public class BoomModExpanded
     static BoomModExpanded()
     {
         Evaluator.UpdateExploders();
-        var harmony = new Harmony("Mlie.BoomModExpanded");
-        harmony.PatchAll();
+        new Harmony("Mlie.BoomModExpanded").PatchAll(Assembly.GetExecutingAssembly());
 
         var listOfExplosionPatches = new List<string>
         {
@@ -54,30 +53,33 @@ public class BoomModExpanded
                 continue;
             }
 
-            harmony.Patch(method, new HarmonyMethod(typeof(BoomModExpanded).GetMethod(nameof(GenericPatch))));
+            new Harmony("Mlie.BoomModExpanded").Patch(method,
+                new HarmonyMethod(typeof(BoomModExpanded).GetMethod(nameof(GenericPatch))));
         }
 
-        if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core") != null)
+        if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core", true) != null)
         {
             Log.Message("[BoomModExpanded]: Adding support for Animal Behaviour");
             method = AccessTools.Method("AnimalBehaviours.HediffComp_Exploder:Notify_PawnDied");
-            harmony.Patch(method, new HarmonyMethod(HediffComp_Exploder_Notify_PawnDied.Prefix));
+            new Harmony("Mlie.BoomModExpanded").Patch(method,
+                new HarmonyMethod(HediffComp_Exploder_Notify_PawnDied.Prefix));
         }
 
 
-        if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes") == null)
+        if (ModLister.GetActiveModWithIdentifier("sarg.alphagenes", true) == null)
         {
             return;
         }
 
         Log.Message("[BoomModExpanded]: Adding support for Alpha Genes");
         method = AccessTools.Method("AlphaGenes.HediffComp_Exploder:Notify_PawnDied");
-        harmony.Patch(method, new HarmonyMethod(HediffComp_Exploder_Notify_PawnDied.Prefix));
+        new Harmony("Mlie.BoomModExpanded").Patch(method,
+            new HarmonyMethod(HediffComp_Exploder_Notify_PawnDied.Prefix));
     }
 
     public static bool GenericPatch(Corpse corpse)
     {
         return corpse.InnerPawn == null || !Evaluator.IsListedPawnKind(corpse.InnerPawn) ||
-               Evaluator.IsExplosionImmiment();
+               Evaluator.IsExplosionImminent();
     }
 }

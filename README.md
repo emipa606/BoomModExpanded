@@ -8,6 +8,7 @@ The main difference is that this version works on all pawns that explode on deat
 
 - Added options for selecting exploding conditions
 - Works well with [Predators Hunt Boom Critters](https://steamcommunity.com/sharedfiles/filedetails/?id=2324221340) by velcroboy333
+- Added support for the explosion hediffs added by Vanilla Expanded and Alpha Genes
 
 Requested by Malminas
 

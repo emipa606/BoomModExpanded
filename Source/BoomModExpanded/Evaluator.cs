@@ -7,22 +7,22 @@ namespace BoomModExpanded;
 
 internal static class Evaluator
 {
-    private static readonly Dictionary<HediffDef, float> ExplosionChance = new Dictionary<HediffDef, float>
+    private static readonly Dictionary<HediffDef, float> explosionChance = new()
     {
         { HediffDef.Named("Burn"), 1f },
         { HediffDef.Named("Gunshot"), 1f },
         { HediffDef.Named("Shredded"), 1f }
     };
 
-    private static List<string> ListedPawnKindDefs;
+    private static List<string> listedPawnKindDefs;
 
-    private static bool _explosionImminent;
+    private static bool explosionImminent;
 
-    public static Pawn currentButcheredPawn;
+    public static Pawn CurrentButcheredPawn;
 
     public static bool IsListedPawnKind(Pawn pawn)
     {
-        return ListedPawnKindDefs.Contains(pawn.kindDef.defName);
+        return listedPawnKindDefs.Contains(pawn.kindDef.defName);
     }
 
     public static void UpdateExploders()
@@ -31,11 +31,11 @@ internal static class Evaluator
             where exploder.race is { deathAction.workerClass: not null } &&
                   exploder.race.deathAction.workerClass.Name.EndsWith("Explosion")
             select exploder;
-        ListedPawnKindDefs = [];
+        listedPawnKindDefs = [];
         var exploderNames = new List<string>();
         foreach (var exploder in explodersLoaded)
         {
-            ListedPawnKindDefs.Add(exploder.defName);
+            listedPawnKindDefs.Add(exploder.defName);
             exploderNames.Add(exploder.label);
         }
 
@@ -56,31 +56,31 @@ internal static class Evaluator
             return false;
         }
 
-        _explosionImminent = true;
+        explosionImminent = true;
         return true;
     }
 
     public static bool IsExplosive(HediffDef def, Pawn victim)
     {
-        if (!BoomModExpandedMod.instance.Settings.Slaughter && victim == currentButcheredPawn)
+        if (!BoomModExpandedMod.Instance.Settings.Slaughter && victim == CurrentButcheredPawn)
         {
             return false;
         }
 
-        if (!BoomModExpandedMod.instance.Settings.Medival)
+        if (!BoomModExpandedMod.Instance.Settings.Medieval)
         {
-            return ExplosionChance.ContainsKey(def) && Rand.Chance(ExplosionChance[def]);
+            return explosionChance.ContainsKey(def) && Rand.Chance(explosionChance[def]);
         }
 
         return true;
     }
 
-    public static bool IsExplosionImmiment()
+    public static bool IsExplosionImminent()
     {
-        var explode = _explosionImminent;
+        var explode = explosionImminent;
         if (explode)
         {
-            _explosionImminent = false;
+            explosionImminent = false;
         }
 
         return explode;
