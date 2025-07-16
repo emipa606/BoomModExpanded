@@ -60,7 +60,7 @@ public class BoomModExpanded
         if (ModLister.GetActiveModWithIdentifier("OskarPotocki.VanillaFactionsExpanded.Core", true) != null)
         {
             Log.Message("[BoomModExpanded]: Adding support for Animal Behaviour");
-            method = AccessTools.Method("AnimalBehaviours.HediffComp_Exploder:Notify_PawnDied");
+            method = AccessTools.Method("VEF.AnimalBehaviours.HediffComp_Exploder:Notify_PawnDied");
             new Harmony("Mlie.BoomModExpanded").Patch(method,
                 new HarmonyMethod(HediffComp_Exploder_Notify_PawnDied.Prefix));
         }

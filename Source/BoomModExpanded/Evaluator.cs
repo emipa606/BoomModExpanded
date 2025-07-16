@@ -29,7 +29,8 @@ internal static class Evaluator
     {
         var explodersLoaded = from exploder in DefDatabase<ThingDef>.AllDefsListForReading
             where exploder.race is { deathAction.workerClass: not null } &&
-                  exploder.race.deathAction.workerClass.Name.EndsWith("Explosion")
+                  exploder.race.deathAction.workerClass.Name.EndsWith("Explosion") &&
+                  !exploder.IsCorpse
             select exploder;
         listedPawnKindDefs = [];
         var exploderNames = new List<string>();

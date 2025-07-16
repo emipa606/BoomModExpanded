@@ -1,5 +1,8 @@
 # Changelog for BoomModExpanded
 
+1.6.1 - Fix for Vanilla Expanded Framework namespace changes
+
+
 1.6.0 - Mod updated for 1.6 and passed autotests
 
 
